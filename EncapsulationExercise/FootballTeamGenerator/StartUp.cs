@@ -63,7 +63,7 @@ void AddPlayer(
     Team team = teams.FirstOrDefault(t => t.Name == teamName);
     if (team == null)
     {
-        throw new ArgumentException($"Team {teamName} does notexist.");
+        throw new ArgumentException($"Team {teamName} does not exist.");
     }
     team.AddPlayer(player);
 }
@@ -72,7 +72,7 @@ void RemovePlayer(string teamName, string playerName)
     Team team = teams.FirstOrDefault(t => t.Name == teamName);
     if (team == null)
     {
-        throw new ArgumentException($"Team {teamName} does notexist.");
+        throw new ArgumentException($"Team {teamName} does not exist.");
     }
     team.RemovePlayer(playerName);
 }
