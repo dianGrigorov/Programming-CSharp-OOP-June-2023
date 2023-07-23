@@ -1,4 +1,5 @@
 ﻿using BookingApp.Models.Rooms.Contracts;
+using BookingApp.Utilities.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,26 @@ namespace BookingApp.Models.Rooms
 {
     public abstract class Room : IRoom
     {
-        public int BedCapacity => throw new NotImplementedException();
-
-        public double PricePerNight => throw new NotImplementedException();
-
-        public void SetPrice(double price)
+        private double pricePerNight;
+        public Room(int bedCapacity)
         {
-            throw new NotImplementedException();
+            BedCapacity = bedCapacity;
         }
+        public int BedCapacity { get; private set; }
+
+        public double PricePerNight
+        {
+            get => pricePerNight;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException(ExceptionMessages.PricePerNightNegative);
+                }
+                pricePerNight = value;
+            }
+        }
+        public void SetPrice(double price)
+            => PricePerNight = price;
     }
 }

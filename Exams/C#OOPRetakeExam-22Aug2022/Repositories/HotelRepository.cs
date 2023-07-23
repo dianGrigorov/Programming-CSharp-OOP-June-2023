@@ -10,18 +10,17 @@ namespace BookingApp.Repositories;
 
 public class HotelRepository : IRepository<IHotel>
 {
+    private readonly List<IHotel> hotels;
+    public HotelRepository()
+    {
+        hotels = new List<IHotel>();
+    }
     public void AddNew(IHotel model)
-    {
-        throw new NotImplementedException();
-    }
-
-    public IReadOnlyCollection<IHotel> All()
-    {
-        throw new NotImplementedException();
-    }
+        => hotels.Add(model);
 
     public IHotel Select(string criteria)
-    {
-        throw new NotImplementedException();
-    }
+        => hotels.FirstOrDefault(h => h.FullName == criteria);
+    public IReadOnlyCollection<IHotel> All()
+       => hotels.AsReadOnly();
+
 }
