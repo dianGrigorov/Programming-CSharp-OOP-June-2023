@@ -44,7 +44,10 @@ public class Controller : IController
             return string.Format(OutputMessages.HotelNameInvalid, hotelName);
         }
         IRoom room = hotel.Rooms.Select(roomTypeName);
-
+        if (room != null)
+        {
+            return OutputMessages.RoomTypeAlreadyCreated;
+        }
         switch (roomTypeName)
         {
             case nameof(DoubleBed):
