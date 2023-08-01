@@ -36,7 +36,7 @@ public class Controller : IController
         hotels.AddNew(hotel);
         return string.Format(OutputMessages.HotelSuccessfullyRegistered, category, hotelName);
     }
-    public string UploadRoomTypes(string hotelName, string roomTypeName)
+    public string UploadRoomTypes(string hotelName, string roomTypeName) 
     {
         IHotel hotel = hotels.Select(hotelName);
         if (hotel == null)
