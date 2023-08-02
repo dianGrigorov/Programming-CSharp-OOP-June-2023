@@ -89,7 +89,7 @@ public abstract class Robot : IRobot
     }
     public override string ToString()
     {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
 
         sb.AppendLine($"{GetType().Name} {Model}:");
         sb.AppendLine($"--Maximum battery capacity: {BatteryCapacity}");

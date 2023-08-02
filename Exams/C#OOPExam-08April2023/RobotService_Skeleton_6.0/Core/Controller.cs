@@ -138,7 +138,7 @@ public class Controller : IController
             .Models()
             .OrderByDescending(r => r.BatteryLevel)
             .ThenBy(r => r.BatteryCapacity);
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
 
         foreach(IRobot robot in orderedRobots)
         {
