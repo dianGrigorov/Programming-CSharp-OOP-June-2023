@@ -148,6 +148,4 @@ public class Controller : IController
         return sb.ToString().TrimEnd();
     }
 
-
-    
 }
