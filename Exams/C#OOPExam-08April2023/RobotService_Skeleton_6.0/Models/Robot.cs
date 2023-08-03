@@ -12,8 +12,6 @@ public abstract class Robot : IRobot
 {
     private string model;
     private int batteryCapacity;
-    private int batteryLevel;
-    private int convertionCapacityIndex;
     private readonly List<int> interfaceStandards;
 
     public Robot(string model, int batteryCapacity, int conversionCapacityIndex)
@@ -93,7 +91,7 @@ public abstract class Robot : IRobot
 
         sb.AppendLine($"{GetType().Name} {Model}:");
         sb.AppendLine($"--Maximum battery capacity: {BatteryCapacity}");
-        sb.AppendLine($"--Current battery level: {BatteryLevel} ");
+        sb.AppendLine($"--Current battery level: {BatteryLevel}");
 
         string supplements = InterfaceStandards.Any()
              ?$"{string.Join(" ",InterfaceStandards)}"
